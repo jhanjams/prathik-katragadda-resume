@@ -1,0 +1,493 @@
+/* =========================================================
+   Prathik Katragadda - Resume Website
+   Colour palette: ink navy, paper white, kokum red, lime
+   Fonts: Space Grotesk (headings), DM Sans (body)
+   Layout: fixed sidebar on the left, content on the right
+   ========================================================= */
+
+/* ---------- Colour palette (CSS variables) ---------- */
+:root {
+  --ink: #14182b;        /* dark navy: sidebar and headings */
+  --paper: #f7f5f0;      /* page background */
+  --white: #ffffff;      /* cards */
+  --kokum: #c8324a;      /* main accent */
+  --lime: #b9d94a;       /* second accent, used sparingly */
+  --text: #3b3f52;       /* body text */
+  --muted: #7b8094;      /* small labels */
+  --line: #e3dfd5;       /* borders */
+  --sidebar-width: 260px;
+}
+
+/* ---------- Reset and base (element selectors) ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--paper);
+}
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--kokum);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---------- Sidebar (ID selector, fixed positioning) ---------- */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: 40px 28px;
+  background-color: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.initials {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--kokum);
+  color: var(--white);
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.sidebar-name {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sidebar-role {
+  font-size: 14px;
+  color: var(--lime);
+  margin-top: 4px;
+}
+
+.nav-list {
+  margin-top: 44px;
+}
+
+.nav-list a {
+  display: block;
+  padding: 9px 12px;
+  margin-bottom: 4px;
+  border-left: 3px solid transparent;
+  color: #c9cce0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.nav-list a:hover {
+  color: var(--white);
+  border-left-color: var(--lime);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-place {
+  margin-top: auto;   /* pushes this line to the bottom of the sidebar */
+  font-size: 13px;
+  color: #8f94b0;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Main content area ---------- */
+#content {
+  margin-left: var(--sidebar-width);   /* leaves room for the fixed sidebar */
+  padding: 0 64px;
+  max-width: 1040px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 96px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--kokum);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  letter-spacing: -1px;
+  max-width: 720px;
+}
+
+.highlight {
+  /* lime marker effect behind the text */
+  background: linear-gradient(transparent 62%, var(--lime) 62%);
+}
+
+.hero-text {
+  max-width: 640px;
+  margin-top: 24px;
+  font-size: 18px;
+}
+
+.stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.stat-number {
+  display: block;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-title {
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+.section-number {
+  font-size: 15px;
+  color: var(--kokum);
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* ---------- Venture cards ---------- */
+.card {
+  position: relative;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--kokum);
+  border-radius: 10px;
+  padding: 30px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 6px 18px rgba(20, 24, 43, 0.05);
+}
+
+.card-kesora {
+  border-top-color: var(--lime);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.card-head h3 {
+  font-size: 24px;
+}
+
+.tag {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: var(--ink);
+  color: var(--white);
+}
+
+.card-sub {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 6px 0 16px;
+}
+
+.points li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+}
+
+.points li::before {
+  /* small square bullet, placed with absolute positioning */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--kokum);
+}
+
+.flavours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.flavour {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: var(--ink);
+}
+
+.flavour-kokum   { background-color: #f6c9c2; }
+.flavour-coconut { background-color: #dcecb5; }
+.flavour-jamun   { background-color: #d5cbe8; }
+.flavour-guava   { background-color: #f9d3de; }
+
+/* ---------- Leadership grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.mini-card {
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(20, 24, 43, 0.08);
+}
+
+.mini-card h3 {
+  font-size: 19px;
+}
+
+.mini-org {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--kokum);
+  margin: 4px 0 10px;
+}
+
+/* ---------- Education timeline ---------- */
+.timeline {
+  border-left: 2px solid var(--ink);
+  margin-left: 6px;
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 30px 30px;
+}
+
+.timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.timeline li::before {
+  /* the dot that sits on the timeline line */
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--lime);
+  border: 2px solid var(--ink);
+}
+
+.timeline-year {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.timeline h3 {
+  font-size: 21px;
+  margin: 2px 0 4px;
+}
+
+/* ---------- Skills ---------- */
+.skill-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.skill-row h3 {
+  width: 130px;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips li {
+  padding: 7px 16px;
+  border-radius: 6px;
+  background-color: var(--ink);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.chips-outline li {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+}
+
+/* ---------- Contact footer (ID selector) ---------- */
+#contact {
+  padding: 72px 0 48px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 38px;
+  margin-bottom: 8px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 30px;
+  border-radius: 8px;
+  background-color: var(--kokum);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.copyright {
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- Smaller screens: sidebar becomes a top bar ---------- */
+@media (max-width: 860px) {
+  #sidebar {
+    position: sticky;
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    z-index: 10;
+  }
+
+  .initials {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .sidebar-name {
+    font-size: 17px;
+  }
+
+  .sidebar-role,
+  .sidebar-place {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .nav-list a {
+    padding: 4px 10px;
+    margin-bottom: 0;
+    border-left: none;
+    font-size: 14px;
+  }
+
+  #content {
+    margin-left: 0;
+    padding: 0 22px;
+  }
+
+  .hero {
+    padding: 56px 0 44px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .stats {
+    gap: 26px;
+    flex-wrap: wrap;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
